@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => (
-  <div>SignIn</div>
+const Account = () => (
+  <div>Account</div>
 );
 
-export default SignIn;
+export default Account;
