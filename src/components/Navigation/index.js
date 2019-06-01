@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import * as ROUTES from '../../constants/routes';
+import SignOut from '../SignOut';
 
 const Navigation = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-md navbar-light bg-light">
     <a className="navbar-brand" href="#">React With Firebase</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -25,6 +26,11 @@ const Navigation = () => (
         </li>
         <li className="nav-item">
           <Link to={ROUTES.ADMIN} className="nav-link">Admin</Link>
+        </li>
+      </ul>
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">          
+          <SignOut />
         </li>
       </ul>
     </div>
