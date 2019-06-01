@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import * as ROUTES from '../../constants/routes';
 import SignOut from '../SignOut';
+import { AuthUserContext } from '../Session';
 
-const Navigation = () => (
+const Navigation = ({ authUser }) => (
   <nav className="navbar navbar-expand-md navbar-light bg-light">
     <a className="navbar-brand" href="#">React With Firebase</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +13,6 @@ const Navigation = () => (
     </button>
     <div className="collapse navbar-collapse" id="navbarText">
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item active">
-          <Link to={ROUTES.SIGN_IN} className="nav-link">Sign In</Link>
-        </li>
         <li className="nav-item">
           <Link to={ROUTES.LANDING} className="nav-link">Landing</Link>
         </li>
@@ -29,9 +27,21 @@ const Navigation = () => (
         </li>
       </ul>
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">          
-          <SignOut />
-        </li>
+        <AuthUserContext.Consumer>
+          {authUser =>
+            authUser 
+              ? (
+                <li className="nav-item">          
+                  <SignOut />
+                </li>
+              )  
+              : (
+                <li className="nav-item active">
+                  <Link to={ROUTES.SIGN_IN} className="nav-link">Sign In</Link>
+                </li> 
+              )
+          }
+        </AuthUserContext.Consumer>
       </ul>
     </div>
   </nav>
