@@ -1,8 +1,14 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+
+import { PasswordForgetLink } from '../PasswordForget';
+import PasswordChangeForm from '../PasswordChange';
 
 const Account = () => (
-  <div>Account</div>
+  <div className="container">
+    <h1>Account</h1>
+    <PasswordChangeForm />
+    <PasswordForgetLink />
+  </div>
 );
 
 export default Account;
